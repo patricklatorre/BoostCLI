@@ -48,11 +48,6 @@ public class BoostCLI
 
 	}
 
-	private void stylePipe(String print) {
-		for(int i = 0; i < print.length(); i++) p("=", 0);
-
-	}
-
 	public void p(String print, String style, int styleLength) {
 		if (style.equals("box")) {
 			styleBox(print, styleLength);
@@ -191,5 +186,9 @@ public class BoostCLI
 		p("-+");
 	}
 
-
+	private void stylePipe(String print) {
+		pp(print, print.length());
+		p(print);
+		pp(print, print.length());
+	}
 }
