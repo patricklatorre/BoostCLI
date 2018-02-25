@@ -66,6 +66,14 @@ public class BoostCLI
 		}
 	}
 
+	public void p(String print, String style, String charTheme, int styleLength) {
+		if(style.equals("pipe")) {
+			stylePipe(print, charTheme, styleLength);
+		}
+	}
+
+
+
 	public void pp(String print, int amount) {
 		String end = "";
 		if( amount < 0 ) end = "\n";
@@ -211,5 +219,11 @@ public class BoostCLI
 		pp(charTheme, print.length());
 		p(print);
 		pp(charTheme, print.length());
+	}
+
+	private void stylePipe(String print, String charTheme, int styleLength) {
+		pp(charTheme, styleLength);
+		p(print);
+		pp(charTheme, styleLength);
 	}
 }
