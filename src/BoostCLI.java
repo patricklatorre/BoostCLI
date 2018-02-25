@@ -4,6 +4,9 @@ public class BoostCLI
 {
 	Scanner sc;
 
+	public void p() {
+		System.out.println();
+	}
 	/**
 	 * Prints a string on the console and goes to next line.
 	 *
