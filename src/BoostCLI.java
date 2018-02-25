@@ -55,6 +55,9 @@ public class BoostCLI
 		else if(style.equals("box-append")) {
 			styleBoxAppend(print, styleLength);
 		}
+		else if(style.equals("pipe")) {
+			stylePipe(print, styleLength);
+		}
 	}
 
 	public void pp(String print, int amount) {
@@ -190,5 +193,11 @@ public class BoostCLI
 		pp(print, print.length());
 		p(print);
 		pp(print, print.length());
+	}
+
+	private void stylePipe(String print, int styleLength) {
+		pp(print, styleLength);
+		p(print);
+		pp(print, styleLength);
 	}
 }
