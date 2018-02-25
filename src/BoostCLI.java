@@ -59,6 +59,14 @@ public class BoostCLI
 		}
 	}
 
+	public void pp(String print, int amount) {
+		String end = "";
+		if( amount < 0 ) end = "\n";
+		amount = Math.abs(amount);
+		for(; amount > 0; amount--) p(print, 0);
+		p(end, 0);
+	}
+
 
 
 	/**
