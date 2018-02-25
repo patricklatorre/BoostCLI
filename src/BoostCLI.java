@@ -4,6 +4,9 @@ public class BoostCLI
 {
 	Scanner sc;
 
+	public void p() {
+		System.out.println();
+	}
 	/**
 	 * Prints a string on the console and goes to next line.
 	 *
@@ -39,6 +42,44 @@ public class BoostCLI
 		else if(style.equals("box-append")) {
 			styleBoxAppend(print);
 		}
+		else if(style.equals("pipe")) {
+			stylePipe(print);
+		}
+
+	}
+
+	public void p(String print, String style, String charTheme) {
+		if(style.equals("pipe")) {
+			stylePipe(print, charTheme);
+		}
+	}
+
+	public void p(String print, String style, int styleLength) {
+		if (style.equals("box")) {
+			styleBox(print, styleLength);
+		}
+		else if(style.equals("box-append")) {
+			styleBoxAppend(print, styleLength);
+		}
+		else if(style.equals("pipe")) {
+			stylePipe(print, styleLength);
+		}
+	}
+
+	public void p(String print, String style, String charTheme, int styleLength) {
+		if(style.equals("pipe")) {
+			stylePipe(print, charTheme, styleLength);
+		}
+	}
+
+
+
+	public void pp(String print, int amount) {
+		String end = "";
+		if( amount < 0 ) end = "\n";
+		amount = Math.abs(amount);
+		for(; amount > 0; amount--) p(print, 0);
+		p(end, 0);
 	}
 
 
@@ -130,6 +171,19 @@ public class BoostCLI
 		p("-+");
 	}
 
+	// TODO: not compatible with stylelength yet
+	public void styleBox(String s, int styleLength) {
+		p("+-", 0);
+		for(int i = 0; i < styleLength; i++) p("-", 0);
+		p("-+");
+		p("| ", 0);
+		p(s, 0);
+		p(" |");
+		p("+-", 0);
+		for(int i = 0; i < styleLength; i++) p("-", 0);
+		p("-+");
+	}
+
 	private void styleBoxAppend(String s) {
 		int width = s.length();
 		p("| ", 0);
@@ -138,5 +192,38 @@ public class BoostCLI
 		p("+-", 0);
 		for(int i = 0; i < width; i++) p("-", 0);
 		p("-+");
+	}
+
+	private void styleBoxAppend(String s, int styleLength) {
+		p("| ", 0);
+		p(s, 0);
+		p(" |");
+		p("+-", 0);
+		for(int i = 0; i < styleLength; i++) p("-", 0);
+		p("-+");
+	}
+
+	private void stylePipe(String print) {
+		pp("=", print.length());
+		p(print);
+		pp("=", print.length());
+	}
+
+	private void stylePipe(String print, int styleLength) {
+		pp("=", styleLength);
+		p(print);
+		pp("=", styleLength);
+	}
+
+	private void stylePipe(String print, String charTheme) {
+		pp(charTheme, print.length());
+		p(print);
+		pp(charTheme, print.length());
+	}
+
+	private void stylePipe(String print, String charTheme, int styleLength) {
+		pp(charTheme, styleLength);
+		p(print);
+		pp(charTheme, styleLength);
 	}
 }
