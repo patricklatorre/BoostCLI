@@ -39,6 +39,24 @@ public class BoostCLI
 		else if(style.equals("box-append")) {
 			styleBoxAppend(print);
 		}
+		else if(style.equals("pipe")) {
+			stylePipe(print);
+		}
+
+	}
+
+	private void stylePipe(String print) {
+		for(int i = 0; i < print.length(); i++) p("=", 0);
+
+	}
+
+	public void p(String print, String style, int styleLength) {
+		if (style.equals("box")) {
+			styleBox(print, styleLength);
+		}
+		else if(style.equals("box-append")) {
+			styleBoxAppend(print, styleLength);
+		}
 	}
 
 
@@ -130,6 +148,19 @@ public class BoostCLI
 		p("-+");
 	}
 
+	// TODO: not compatible with stylelength yet
+	public void styleBox(String s, int styleLength) {
+		p("+-", 0);
+		for(int i = 0; i < styleLength; i++) p("-", 0);
+		p("-+");
+		p("| ", 0);
+		p(s, 0);
+		p(" |");
+		p("+-", 0);
+		for(int i = 0; i < styleLength; i++) p("-", 0);
+		p("-+");
+	}
+
 	private void styleBoxAppend(String s) {
 		int width = s.length();
 		p("| ", 0);
@@ -139,4 +170,15 @@ public class BoostCLI
 		for(int i = 0; i < width; i++) p("-", 0);
 		p("-+");
 	}
+
+	private void styleBoxAppend(String s, int styleLength) {
+		p("| ", 0);
+		p(s, 0);
+		p(" |");
+		p("+-", 0);
+		for(int i = 0; i < styleLength; i++) p("-", 0);
+		p("-+");
+	}
+
+
 }
