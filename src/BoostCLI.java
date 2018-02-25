@@ -48,6 +48,12 @@ public class BoostCLI
 
 	}
 
+	public void p(String print, String style, String charTheme) {
+		if(style.equals("pipe")) {
+			stylePipe(print, charTheme);
+		}
+	}
+
 	public void p(String print, String style, int styleLength) {
 		if (style.equals("box")) {
 			styleBox(print, styleLength);
@@ -190,14 +196,20 @@ public class BoostCLI
 	}
 
 	private void stylePipe(String print) {
-		pp(print, print.length());
+		pp("=", print.length());
 		p(print);
-		pp(print, print.length());
+		pp("=", print.length());
 	}
 
 	private void stylePipe(String print, int styleLength) {
-		pp(print, styleLength);
+		pp("=", styleLength);
 		p(print);
-		pp(print, styleLength);
+		pp("=", styleLength);
+	}
+
+	private void stylePipe(String print, String charTheme) {
+		pp(charTheme, print.length());
+		p(print);
+		pp(charTheme, print.length());
 	}
 }
