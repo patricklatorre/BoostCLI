@@ -95,7 +95,6 @@ public class BoostCLI
 		p(print, 0);
 		sc = new Scanner(System.in);
 		String input = sc.nextLine();
-		sc.close();
 		return input;
 	}
 
@@ -110,7 +109,6 @@ public class BoostCLI
 		p(print, 0);
 		sc = new Scanner(System.in);
 		String input = sc.next();
-		sc.close();
 		return input;
 	}
 
@@ -124,7 +122,6 @@ public class BoostCLI
 		p(print, 0);
 		sc = new Scanner(System.in);
 		int input = sc.nextInt();
-		sc.close();
 		return input;
 	}
 
@@ -138,7 +135,6 @@ public class BoostCLI
 		p(print, 0);
 		sc = new Scanner(System.in);
 		float input = sc.nextFloat();
-		sc.close();
 		return input;
 	}
 
@@ -152,7 +148,6 @@ public class BoostCLI
 		p(print, 0);
 		sc = new Scanner(System.in);
 		double input = sc.nextDouble();
-		sc.close();
 		return input;
 	}
 
@@ -205,25 +200,33 @@ public class BoostCLI
 
 	private void stylePipe(String print) {
 		pp("=", print.length());
+		p();
 		p(print);
 		pp("=", print.length());
+		p();
 	}
 
 	private void stylePipe(String print, int styleLength) {
 		pp("=", styleLength);
+		p();
 		p(print);
 		pp("=", styleLength);
+		p();
 	}
 
 	private void stylePipe(String print, String charTheme) {
 		pp(charTheme, print.length());
+		p();
 		p(print);
 		pp(charTheme, print.length());
+		p();
 	}
 
 	private void stylePipe(String print, String charTheme, int styleLength) {
 		pp(charTheme, styleLength);
+		p();
 		p(print);
 		pp(charTheme, styleLength);
+		p();
 	}
 }
