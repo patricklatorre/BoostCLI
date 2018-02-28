@@ -26,11 +26,10 @@ public class BoostCLI
 	 * @param print the string to be printed
 	 * @param lines number of line breaks to be printed
 	 * */
-	// TODO: Decide if should break line
 	public void p(String print, int lines) {
 		if (lines < 0) {
 			for (; lines < 0; lines++) p("");
-			System.out.println(print);
+			System.out.print(print);
 		} else {
 			System.out.print(print);
 			for (; lines > 0; lines--) p("");
@@ -197,7 +196,9 @@ public class BoostCLI
 		p("-+");
 	}
 
-	// TODO: not compatible with stylelength yet
+	/**
+	 * @deprecated
+	 * */
 	public void styleBox(String s, int styleLength) {
 		p("+-", 0);
 		for(int i = 0; i < styleLength; i++) p("-", 0);
