@@ -1,3 +1,5 @@
+import javax.lang.model.type.PrimitiveType;
+import java.util.List;
 import java.util.Scanner;
 
 public class BoostCLI
@@ -35,6 +37,13 @@ public class BoostCLI
 		}
 	}
 
+	/**
+	 * Prints a responsive decoration around text. Uses the style's
+	 * default character theme.
+	 *
+	 * @param print	the string to be printed
+	 * @param style	the decoration style
+	 * */
 	public void p(String print, String style) {
 		if (style.equals("box")) {
 			styleBox(print);
@@ -45,12 +54,17 @@ public class BoostCLI
 		else if(style.equals("pipe")) {
 			stylePipe(print);
 		}
-
+		else if(style.equals("pillar")) {
+			stylePillar(print);
+		}
 	}
 
 	public void p(String print, String style, String charTheme) {
 		if(style.equals("pipe")) {
 			stylePipe(print, charTheme);
+		}
+		else if(style.equals("pillar")) {
+			stylePillar(print, charTheme);
 		}
 	}
 
@@ -64,11 +78,17 @@ public class BoostCLI
 		else if(style.equals("pipe")) {
 			stylePipe(print, styleLength);
 		}
+		else if(style.equals("pillar")) {
+			stylePillar(print, styleLength);
+		}
 	}
 
 	public void p(String print, String style, String charTheme, int styleLength) {
 		if(style.equals("pipe")) {
 			stylePipe(print, charTheme, styleLength);
+		}
+		else if(style.equals("pillar")) {
+			stylePillar(print, charTheme, styleLength);
 		}
 	}
 
@@ -82,6 +102,17 @@ public class BoostCLI
 		p(end, 0);
 	}
 
+	public void pl(Object[] list) {
+		for(Object item : list) p(String.valueOf(item));
+	}
+
+	public void pl(Object[] list, String style) {
+		for(Object item : list) p(String.valueOf(item));
+	}
+
+	public void pl(List<Object> list) {
+		for(Object item : list) p(String.valueOf(item));
+	}
 
 
 	/**
@@ -228,5 +259,29 @@ public class BoostCLI
 		p(print);
 		pp(charTheme, styleLength);
 		p();
+	}
+
+	private void stylePillar(String print) {
+		p("|\t" +print+ "\t|");
+	}
+
+	private void stylePillar(String print, String charTheme) {
+		p(charTheme + "\t" +print+ "\t" + charTheme);
+	}
+
+	private void stylePillar(String print, int styleLength) {
+		p("|", 0);
+		for(int i = 0; i < styleLength; i++) p("\t", 0);
+		p(print, 0);
+		for(int i = 0; i < styleLength; i++) p("\t", 0);
+		p("|", 0);
+	}
+
+	private void stylePillar(String print, String charTheme, int styleLength) {
+		p(charTheme, 0);
+		for(int i = 0; i < styleLength; i++) p("\t", 0);
+		p(print, 0);
+		for(int i = 0; i < styleLength; i++) p("\t", 0);
+		p(charTheme, 0);
 	}
 }
