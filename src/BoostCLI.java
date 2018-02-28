@@ -142,6 +142,13 @@ public class BoostCLI
 		return input;
 	}
 
+	public String sc(String print) {
+		p(print, 0);
+		sc = new Scanner(System.in);
+		String input = sc.next();
+		return "" + input.charAt(0);
+	}
+
 	/**
 	 * Prints a message then asks for an integer.
 	 *
