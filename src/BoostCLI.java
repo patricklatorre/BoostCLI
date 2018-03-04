@@ -214,14 +214,30 @@ public class BoostCLI
 
 
 	/* PRIVATE METHODS */
+
+
+	private String replaceInnerSpaces(String print, int slots) {
+		String modifiedStr = "";
+		int padding = (slots-print.length()) / 2;
+
+		for(int i = 0; i < padding; i++)
+			modifiedStr += " ";
+		modifiedStr += print;
+		for(int i = 0; i < padding; i++)
+			modifiedStr += " ";
+
+		if((slots - print.length()) % 2 != 0)
+			modifiedStr += " ";
+
+		return modifiedStr;
+	}
+
 	public void styleBox(String s) {
 		int width = s.length();
 		p("+-", 0);
 		for(int i = 0; i < width; i++) p("-", 0);
 		p("-+");
-		p("| ", 0);
-		p(s, 0);
-		p(" |");
+		stylePillar(s, s.length()+2);
 		p("+-", 0);
 		for(int i = 0; i < width; i++) p("-", 0);
 		p("-+");
@@ -355,21 +371,5 @@ public class BoostCLI
 
 	private void stylePillar(String print, String charTheme, int styleLength) {
 		p(charTheme +replaceInnerSpaces(print, styleLength)+ charTheme);
-	}
-
-	private String replaceInnerSpaces(String print, int slots) {
-		String modifiedStr = "";
-		int padding = (slots-print.length()) / 2;
-
-		for(int i = 0; i < padding; i++)
-			modifiedStr += " ";
-		modifiedStr += print;
-		for(int i = 0; i < padding; i++)
-			modifiedStr += " ";
-
-		if((slots - print.length()) % 2 != 0)
-			modifiedStr += " ";
-
-		return modifiedStr;
 	}
 }
