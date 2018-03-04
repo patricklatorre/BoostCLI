@@ -7,7 +7,7 @@ import java.util.Scanner;
 // TODO: complete javadoc
 public class BoostCLI
 {
-	Scanner sc;
+	private Scanner sc;
 
 	public void p() {
 		System.out.println();
@@ -219,7 +219,6 @@ public class BoostCLI
 
 	/* PRIVATE METHODS */
 
-
 	private String replaceInnerSpaces(String print, int slots) {
 		String modifiedStr = "";
 		int padding = (slots-print.length()) / 2;
@@ -370,5 +369,14 @@ public class BoostCLI
 
 	private void stylePillar(String print, String charTheme, int styleLength) {
 		p(charTheme +replaceInnerSpaces(print, styleLength)+ charTheme);
+	}
+
+	@Override
+	public String toString() {
+		String info = "";
+		info += "BoostCLI\n";
+		info += "Version 0.5.3\n";
+		info += "by Patrick Latorre";
+		return info;
 	}
 }
