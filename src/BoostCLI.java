@@ -59,6 +59,9 @@ public class BoostCLI
 		else if(style.equals("pillar-space")) {
 			stylePillarSpace(print);
 		}
+		else if(style.equals("pillar")) {
+			stylePillar(print);
+		}
 	}
 
 	public void p(String print, String style, String charTheme) {
@@ -70,6 +73,9 @@ public class BoostCLI
 		}
 		else if(style.equals("pillar-space")) {
 			stylePillarSpace(print, charTheme);
+		}
+		else if(style.equals("pillar")) {
+			stylePillar(print, charTheme);
 		}
 	}
 
@@ -89,6 +95,9 @@ public class BoostCLI
 		else if(style.equals("pillar-space")) {
 			stylePillarSpace(print, styleLength);
 		}
+		else if(style.equals("pillar")) {
+			stylePillar(print, styleLength);
+		}
 	}
 
 	public void p(String print, String style, String charTheme, int styleLength) {
@@ -100,6 +109,9 @@ public class BoostCLI
 		}
 		else if(style.equals("pillar-space")) {
 			stylePillarSpace(print, charTheme, styleLength);
+		}
+		else if(style.equals("pillar")) {
+			stylePillar(print, charTheme, styleLength);
 		}
 	}
 
@@ -327,5 +339,37 @@ public class BoostCLI
 		p(print, 0);
 		for(int i = 0; i < styleLength; i++) p(" ", 0);
 		p(charTheme, 1);
+	}
+
+	private void stylePillar(String print) {
+		p("|" +print+ "|");
+	}
+
+	private void stylePillar(String print, String charTheme) {
+		p(charTheme +print+ charTheme);
+	}
+
+	private void stylePillar(String print, int styleLength) {
+		p("|" +replaceInnerSpaces(print, styleLength)+ "|");
+	}
+
+	private void stylePillar(String print, String charTheme, int styleLength) {
+		p(charTheme +replaceInnerSpaces(print, styleLength)+ charTheme);
+	}
+
+	private String replaceInnerSpaces(String print, int slots) {
+		String modifiedStr = "";
+		int padding = (slots-print.length()) / 2;
+
+		for(int i = 0; i < padding; i++)
+			modifiedStr += " ";
+		modifiedStr += print;
+		for(int i = 0; i < padding; i++)
+			modifiedStr += " ";
+
+		if((slots - print.length()) % 2 != 0)
+			modifiedStr += " ";
+
+		return modifiedStr;
 	}
 }
