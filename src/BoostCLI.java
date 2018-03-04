@@ -235,46 +235,41 @@ public class BoostCLI
 	public void styleBox(String s) {
 		int width = s.length();
 		p("+-", 0);
-		for(int i = 0; i < width; i++) p("-", 0);
+		pp("-", width);
 		p("-+");
-		stylePillar(s, s.length()+2);
+		stylePillar(s, width+2);
 		p("+-", 0);
-		for(int i = 0; i < width; i++) p("-", 0);
+		pp("-", width);
 		p("-+");
 	}
 
-	/**
-	 * @deprecated
-	 * */
 	public void styleBox(String s, int styleLength) {
-		p("+-", 0);
-		for(int i = 0; i < styleLength; i++) p("-", 0);
-		p("-+");
-		p("| ", 0);
-		p(s, 0);
-		p(" |");
-		p("+-", 0);
-		for(int i = 0; i < styleLength; i++) p("-", 0);
-		p("-+");
+		String paddedString = replaceInnerSpaces(s, styleLength);
+		int fullWidth = paddedString.length();
+		p("+", 0);
+		pp("-", fullWidth);
+		p("+");
+		stylePillar(paddedString, styleLength);
+		p("+", 0);
+		pp("-", fullWidth);
+		p("+");
 	}
 
 	private void styleBoxAppend(String s) {
 		int width = s.length();
-		p("| ", 0);
-		p(s, 0);
-		p(" |");
+		stylePillar(s, width+2);
 		p("+-", 0);
-		for(int i = 0; i < width; i++) p("-", 0);
+		pp("-", width);
 		p("-+");
 	}
 
 	private void styleBoxAppend(String s, int styleLength) {
-		p("| ", 0);
-		p(s, 0);
-		p(" |");
-		p("+-", 0);
-		for(int i = 0; i < styleLength; i++) p("-", 0);
-		p("-+");
+		String paddedString = replaceInnerSpaces(s, styleLength);
+		int fullWidth = paddedString.length();
+		stylePillar(paddedString, styleLength);
+		p("+", 0);
+		pp("-", fullWidth);
+		p("+");
 	}
 
 	private void stylePipe(String print) {
