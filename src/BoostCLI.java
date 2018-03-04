@@ -2,6 +2,9 @@ import javax.lang.model.type.PrimitiveType;
 import java.util.List;
 import java.util.Scanner;
 
+// TODO: decorate pl()
+// TODO: make wrap style () {} [] <>
+// TODO: complete javadoc
 public class BoostCLI
 {
 	Scanner sc;
@@ -9,6 +12,7 @@ public class BoostCLI
 	public void p() {
 		System.out.println();
 	}
+
 	/**
 	 * Prints a string on the console and goes to next line.
 	 *
@@ -232,7 +236,7 @@ public class BoostCLI
 		return modifiedStr;
 	}
 
-	public void styleBox(String s) {
+	private void styleBox(String s) {
 		int width = s.length();
 		p("+-", 0);
 		pp("-", width);
@@ -243,7 +247,7 @@ public class BoostCLI
 		p("-+");
 	}
 
-	public void styleBox(String s, int styleLength) {
+	private void styleBox(String s, int styleLength) {
 		String paddedString = replaceInnerSpaces(s, styleLength);
 		int fullWidth = paddedString.length();
 		p("+", 0);
