@@ -379,4 +379,8 @@ public class BoostCLI
 		info += "by Patrick Latorre";
 		return info;
 	}
+
+	public void version() {
+		p(toString(), "pipe", 20);
+	}
 }
