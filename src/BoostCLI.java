@@ -53,8 +53,8 @@ public class BoostCLI
 		else if(style.equals("pipe")) {
 			stylePipe(print);
 		}
-		else if(style.equals("pillar")) {
-			stylePillar(print);
+		else if(style.equals("pillar-tab")) {
+			stylePillarTab(print);
 		}
 	}
 
@@ -62,8 +62,8 @@ public class BoostCLI
 		if(style.equals("pipe")) {
 			stylePipe(print, charTheme);
 		}
-		else if(style.equals("pillar")) {
-			stylePillar(print, charTheme);
+		else if(style.equals("pillar-tab")) {
+			stylePillarTab(print, charTheme);
 		}
 	}
 
@@ -77,8 +77,8 @@ public class BoostCLI
 		else if(style.equals("pipe")) {
 			stylePipe(print, styleLength);
 		}
-		else if(style.equals("pillar")) {
-			stylePillar(print, styleLength);
+		else if(style.equals("pillar-tab")) {
+			stylePillarTab(print, styleLength);
 		}
 	}
 
@@ -86,8 +86,8 @@ public class BoostCLI
 		if(style.equals("pipe")) {
 			stylePipe(print, charTheme, styleLength);
 		}
-		else if(style.equals("pillar")) {
-			stylePillar(print, charTheme, styleLength);
+		else if(style.equals("pillar-tab")) {
+			stylePillarTab(print, charTheme, styleLength);
 		}
 	}
 
@@ -269,27 +269,27 @@ public class BoostCLI
 		p();
 	}
 
-	private void stylePillar(String print) {
+	private void stylePillarTab(String print) {
 		p("|\t" +print+ "\t|");
 	}
 
-	private void stylePillar(String print, String charTheme) {
+	private void stylePillarTab(String print, String charTheme) {
 		p(charTheme + "\t" +print+ "\t" + charTheme);
 	}
 
-	private void stylePillar(String print, int styleLength) {
+	private void stylePillarTab(String print, int styleLength) {
 		p("|", 0);
 		for(int i = 0; i < styleLength; i++) p("\t", 0);
 		p(print, 0);
 		for(int i = 0; i < styleLength; i++) p("\t", 0);
-		p("|", 0);
+		p("|", 1);
 	}
 
-	private void stylePillar(String print, String charTheme, int styleLength) {
+	private void stylePillarTab(String print, String charTheme, int styleLength) {
 		p(charTheme, 0);
 		for(int i = 0; i < styleLength; i++) p("\t", 0);
 		p(print, 0);
 		for(int i = 0; i < styleLength; i++) p("\t", 0);
-		p(charTheme, 0);
+		p(charTheme, 1);
 	}
 }
