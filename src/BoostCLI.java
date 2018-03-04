@@ -66,6 +66,9 @@ public class BoostCLI
 		else if(style.equals("pillar")) {
 			stylePillar(print);
 		}
+		else {
+			styleQuickWrap(print, style);
+		}
 	}
 
 	public void p(String print, String style, String charTheme) {
@@ -101,6 +104,9 @@ public class BoostCLI
 		}
 		else if(style.equals("pillar")) {
 			stylePillar(print, styleLength);
+		}
+		else {
+			styleQuickWrap(print, style, styleLength);
 		}
 	}
 
@@ -369,6 +375,23 @@ public class BoostCLI
 
 	private void stylePillar(String print, String charTheme, int styleLength) {
 		p(charTheme +replaceInnerSpaces(print, styleLength)+ charTheme);
+	}
+
+	private void styleQuickWrap(String print, String wrapper) {
+		String[] splitWrap = wrapper.split("[|]");
+		p(splitWrap[0] +print+ splitWrap[1], 0);
+	}
+
+	private void styleQuickWrap(String print, String wrapper, int styleLength) {
+		String[] splitWrap = wrapper.split("|");
+
+		p(splitWrap[0], 0);
+		for(int i = 0; i < styleLength; i++)
+			p(" ", 0);
+		p(print, 0);
+		for(int i = 0; i < styleLength; i++)
+			p(" ", 0);
+		p(splitWrap[1], 0);
 	}
 
 	@Override
