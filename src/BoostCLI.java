@@ -8,7 +8,9 @@ import java.util.Scanner;
 public class BoostCLI
 {
 	private Scanner sc;
-
+	/**
+	 * Prints a single line break.
+	 * */
 	public void p() {
 		System.out.println();
 	}
@@ -71,6 +73,14 @@ public class BoostCLI
 		}
 	}
 
+	/**
+	 * Prints a responsive decoration around text. Uses the param
+	 * character theme to replace main character used in theme.
+	 *
+	 * @param print		the string to be printed
+	 * @param style		the decoration style
+	 * @param charTheme the character to be replaced
+	 * */
 	public void p(String print, String style, String charTheme) {
 		if(style.equals("pipe")) {
 			stylePipe(print, charTheme);
@@ -86,6 +96,14 @@ public class BoostCLI
 		}
 	}
 
+	/**
+	 * Prints a responsive decoration around text. Uses the param
+	 * character theme to replace main character used in theme.
+	 *
+	 * @param print			the string to be printed
+	 * @param style			the decoration style
+	 * @param styleLength 	gives the style a fixed metric instead of being responsive
+	 * */
 	public void p(String print, String style, int styleLength) {
 		if (style.equals("box")) {
 			styleBox(print, styleLength);
@@ -110,6 +128,15 @@ public class BoostCLI
 		}
 	}
 
+	/**
+	 * Prints a responsive decoration around text. Uses the param
+	 * character theme to replace main character used in theme.
+	 *
+	 * @param print			the string to be printed
+	 * @param style			the decoration style
+	 * @param charTheme the character to be replaced
+	 * @param styleLength 	gives the style a fixed metric instead of being responsive
+	 * */
 	public void p(String print, String style, String charTheme, int styleLength) {
 		if(style.equals("pipe")) {
 			stylePipe(print, charTheme, styleLength);
@@ -126,7 +153,11 @@ public class BoostCLI
 	}
 
 
-
+	/**
+	 * Prints a string an indicated number of times.
+	 *
+	 * @param print	the string to be printed
+	 * */
 	public void pp(String print, int amount) {
 		String end = "";
 		if( amount < 0 ) end = "\n";
@@ -135,26 +166,56 @@ public class BoostCLI
 		p(end, 0);
 	}
 
+	/**
+	 * Iterates through a list and prints the String associated with the index.
+	 *
+	 * @param list	the string to be printed
+	 * */
 	public void pl(String[] list) {
 		for(String item : list) p(item);
 	}
 
+	/**
+	 * Iterates through a list and prints the String associated with the index.
+	 *
+	 * @param list	the string to be printed
+	 * */
 	public void pl(int[] list) {
 		for(int item : list) p(String.valueOf(item));
 	}
 
+	/**
+	 * Iterates through a list and prints the String associated with the index.
+	 *
+	 * @param list	the string to be printed
+	 * */
 	public void pl(float[] list) {
 		for(float item : list) p(String.valueOf(item));
 	}
 
+	/**
+	 * Iterates through a list and prints the String associated with the index.
+	 *
+	 * @param list	the string to be printed
+	 * */
 	public void pl(double[] list) {
 		for(double item : list) p(String.valueOf(item));
 	}
 
+	/**
+	 * Iterates through a list and prints the String associated with the index.
+	 *
+	 * @param list	the string to be printed
+	 * */
 	public void pl(Object[] list, String style) {
 		for(Object item : list) p(String.valueOf(item));
 	}
 
+	/**
+	 * Iterates through a list and prints the String associated with the index.
+	 *
+	 * @param list	the string to be printed
+	 * */
 	public void pl(List<String> list) {
 		for(String item : list) p(item);
 	}
@@ -187,6 +248,13 @@ public class BoostCLI
 		return input;
 	}
 
+	/**
+	 * Prints a message then asks for an character. (can input a string
+	 * but only utilizes first char)
+	 *
+	 * @param print the message to be printed
+	 * @return user input
+	 * */
 	public String sc(String print) {
 		p(print, 0);
 		sc = new Scanner(System.in);
@@ -233,9 +301,20 @@ public class BoostCLI
 		return input;
 	}
 
+	@Override
+	public String toString() {
+		String info = "";
+		info += "BoostCLI\n";
+		info += "Version 0.5.3\n";
+		info += "by Patrick Latorre";
+		return info;
+	}
+
+	public void version() {
+		p(toString(), "pipe", 20);
+	}
 
 	/* PRIVATE METHODS */
-
 	private String replaceInnerSpaces(String print, int slots) {
 		String modifiedStr = "";
 		int padding = (slots-print.length()) / 2;
@@ -403,18 +482,5 @@ public class BoostCLI
 		for(int i = 0; i < styleLength; i++)
 			p(" ", 0);
 		p(splitWrap[1], 0);
-	}
-
-	@Override
-	public String toString() {
-		String info = "";
-		info += "BoostCLI\n";
-		info += "Version 0.5.3\n";
-		info += "by Patrick Latorre";
-		return info;
-	}
-
-	public void version() {
-		p(toString(), "pipe", 20);
 	}
 }
