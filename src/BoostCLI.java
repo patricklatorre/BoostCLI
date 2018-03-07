@@ -156,7 +156,8 @@ public class BoostCLI
 	/**
 	 * Prints a string an indicated number of times.
 	 *
-	 * @param print	the string to be printed
+	 * @param print		the string to be printed
+	 * @param amount    amount of times the string is to be printed
 	 * */
 	public void pp(String print, int amount) {
 		String end = "";
@@ -206,6 +207,7 @@ public class BoostCLI
 	 * Iterates through a list and prints the String associated with the index.
 	 *
 	 * @param list	the string to be printed
+	 * @param style	the style of which the list is to be printed
 	 * */
 	public void pl(Object[] list, String style) {
 		for(Object item : list) p(String.valueOf(item));
