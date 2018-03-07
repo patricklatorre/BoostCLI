@@ -66,6 +66,9 @@ public class BoostCLI
 		else if(style.equals("pillar")) {
 			stylePillar(print);
 		}
+		else {
+			styleQuickWrap(print, style);
+		}
 	}
 
 	public void p(String print, String style, String charTheme) {
@@ -101,6 +104,9 @@ public class BoostCLI
 		}
 		else if(style.equals("pillar")) {
 			stylePillar(print, styleLength);
+		}
+		else {
+			styleQuickWrap(print, style, styleLength);
 		}
 	}
 
@@ -382,6 +388,23 @@ public class BoostCLI
 		p(charTheme +replaceInnerSpaces(print, styleLength)+ charTheme);
 	}
 
+	private void styleQuickWrap(String print, String wrapper) {
+		String[] splitWrap = wrapper.split("[|]");
+		p(splitWrap[0] +print+ splitWrap[1], 0);
+	}
+
+	private void styleQuickWrap(String print, String wrapper, int styleLength) {
+		String[] splitWrap = wrapper.split("|");
+
+		p(splitWrap[0], 0);
+		for(int i = 0; i < styleLength; i++)
+			p(" ", 0);
+		p(print, 0);
+		for(int i = 0; i < styleLength; i++)
+			p(" ", 0);
+		p(splitWrap[1], 0);
+	}
+
 	@Override
 	public String toString() {
 		String info = "";
@@ -389,5 +412,9 @@ public class BoostCLI
 		info += "Version 0.5.3\n";
 		info += "by Patrick Latorre";
 		return info;
+	}
+
+	public void version() {
+		p(toString(), "pipe", 20);
 	}
 }
