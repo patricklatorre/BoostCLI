@@ -129,18 +129,29 @@ public class BoostCLI
 		p(end, 0);
 	}
 
-	public void pl(Object[] list) {
-		for(Object item : list) p(String.valueOf(item));
+	public void pl(String[] list) {
+		for(String item : list) p(item);
+	}
+
+	public void pl(int[] list) {
+		for(int item : list) p(String.valueOf(item));
+	}
+
+	public void pl(float[] list) {
+		for(float item : list) p(String.valueOf(item));
+	}
+
+	public void pl(double[] list) {
+		for(double item : list) p(String.valueOf(item));
 	}
 
 	public void pl(Object[] list, String style) {
 		for(Object item : list) p(String.valueOf(item));
 	}
 
-	public void pl(List<Object> list) {
-		for(Object item : list) p(String.valueOf(item));
+	public void pl(List<String> list) {
+		for(String item : list) p(item);
 	}
-
 
 	/**
 	 * Prints a message then asks for a string. String input
