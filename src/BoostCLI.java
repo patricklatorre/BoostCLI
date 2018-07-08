@@ -300,7 +300,7 @@ public class BoostCLI
 	public String toString() {
 		String info = "";
 		info += "BoostCLI\n";
-		info += "Version 0.5.3\n";
+		info += "Version 0.6.3\n";
 		info += "by Patrick Latorre";
 		return info;
 	}
