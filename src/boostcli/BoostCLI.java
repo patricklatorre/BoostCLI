@@ -1,14 +1,13 @@
-package boostcli;
+package BoostCLI;
+
+import BoostCLI.stylist.Stylist;
+import BoostCLI.stylist.placer.Placer;
 
 import java.util.List;
 import java.util.Scanner;
 
-// TODO: decorate pl()
-// TODO: make wrap style () {} [] <>
-// TODO: complete javadoc
 public class BoostCLI
 {
-	private Scanner sc;
 	/**
 	 * Prints ln single line break.
 	 * @return itself for method chaining
@@ -38,13 +37,7 @@ public class BoostCLI
 	 * @return itself for method chaining
 	 * */
 	public BoostCLI p(String print, int lines) {
-		if (lines < 0) {
-			for (; lines < 0; lines++) p("");
-			System.out.print(print);
-		} else {
-			System.out.print(print);
-			for (; lines > 0; lines--) p("");
-		}
+		System.out.print(Placer.e(print, lines));
 		return this;
 	}
 
@@ -58,25 +51,25 @@ public class BoostCLI
 	 * */
 	public BoostCLI p(String print, String style) {
 		if (style.equals("box")) {
-			styleBox(print);
+			System.out.print(Stylist.styleBox(print));
 		}
 		else if(style.equals("box-append")) {
-			styleBoxAppend(print);
+			System.out.print(Stylist.styleBoxAppend(print));
 		}
 		else if(style.equals("pipe")) {
-			stylePipe(print);
+			System.out.print(Stylist.stylePipe(print));
 		}
 		else if(style.equals("pillar-tab")) {
-			stylePillarTab(print);
+			System.out.print(Stylist.stylePillarTab(print));
 		}
 		else if(style.equals("pillar-space")) {
-			stylePillarSpace(print);
+			System.out.print(Stylist.stylePillarSpace(print));
 		}
 		else if(style.equals("pillar")) {
-			stylePillar(print);
+			System.out.print(Stylist.stylePillar(print));
 		}
 		else {
-			styleQuickWrap(print, style);
+			System.out.print(Stylist.styleQuickWrap(print, style));
 		}
 		return this;
 	}
@@ -92,16 +85,16 @@ public class BoostCLI
 	 * */
 	public BoostCLI p(String print, String style, String charTheme) {
 		if(style.equals("pipe")) {
-			stylePipe(print, charTheme);
+			System.out.print(Stylist.stylePipe(print, charTheme));
 		}
 		else if(style.equals("pillar-tab")) {
-			stylePillarTab(print, charTheme);
+			System.out.print(Stylist.stylePillarTab(print, charTheme));
 		}
 		else if(style.equals("pillar-space")) {
-			stylePillarSpace(print, charTheme);
+			System.out.print(Stylist.stylePillarSpace(print, charTheme));
 		}
 		else if(style.equals("pillar")) {
-			stylePillar(print, charTheme);
+			System.out.print(Stylist.stylePillar(print, charTheme));
 		}
 		return this;
 	}
@@ -117,25 +110,25 @@ public class BoostCLI
 	 * */
 	public BoostCLI p(String print, String style, int styleLength) {
 		if (style.equals("box")) {
-			styleBox(print, styleLength);
+			System.out.print(Stylist.styleBox(print, styleLength));
 		}
 		else if(style.equals("box-append")) {
-			styleBoxAppend(print, styleLength);
+			System.out.print(Stylist.styleBoxAppend(print, styleLength));
 		}
 		else if(style.equals("pipe")) {
-			stylePipe(print, styleLength);
+			System.out.print(Stylist.stylePipe(print, styleLength));
 		}
 		else if(style.equals("pillar-tab")) {
-			stylePillarTab(print, styleLength);
+			System.out.print(Stylist.stylePillarTab(print, styleLength));
 		}
 		else if(style.equals("pillar-space")) {
-			stylePillarSpace(print, styleLength);
+			System.out.print(Stylist.stylePillarSpace(print, styleLength));
 		}
 		else if(style.equals("pillar")) {
-			stylePillar(print, styleLength);
+			System.out.print(Stylist.stylePillar(print, styleLength));
 		}
 		else {
-			styleQuickWrap(print, style, styleLength);
+			System.out.print(Stylist.styleQuickWrap(print, style, styleLength));
 		}
 		return this;
 	}
@@ -152,16 +145,16 @@ public class BoostCLI
 	 * */
 	public BoostCLI p(String print, String style, String charTheme, int styleLength) {
 		if(style.equals("pipe")) {
-			stylePipe(print, charTheme, styleLength);
+			System.out.print(Stylist.stylePipe(print, charTheme, styleLength));
 		}
 		else if(style.equals("pillar-tab")) {
-			stylePillarTab(print, charTheme, styleLength);
+			System.out.print(Stylist.stylePillarTab(print, charTheme, styleLength));
 		}
 		else if(style.equals("pillar-space")) {
-			stylePillarSpace(print, charTheme, styleLength);
+			System.out.print(Stylist.stylePillarSpace(print, charTheme, styleLength));
 		}
 		else if(style.equals("pillar")) {
-			stylePillar(print, charTheme, styleLength);
+			System.out.print(Stylist.stylePillar(print, charTheme, styleLength));
 		}
 		return this;
 	}
@@ -175,11 +168,7 @@ public class BoostCLI
 	 * @return itself for method chaining
 	 * */
 	public BoostCLI pp(String print, int amount) {
-		String end = "";
-		if( amount < 0 ) end = "\n";
-		amount = Math.abs(amount);
-		for(; amount > 0; amount--) p(print, 0);
-		p(end, 0);
+		System.out.print(Placer.ee(print, amount));
 		return this;
 	}
 
@@ -259,9 +248,7 @@ public class BoostCLI
 	 * */
 	public String s(String print) {
 		p(print, 0);
-		sc = new Scanner(System.in);
-		String input = sc.nextLine();
-		return input;
+		return new Scanner(System.in).nextLine();
 	}
 
 	/**
@@ -273,9 +260,7 @@ public class BoostCLI
 	 * */
 	public String sw(String print) {
 		p(print, 0);
-		sc = new Scanner(System.in);
-		String input = sc.next();
-		return input;
+		return new Scanner(System.in).next();
 	}
 
 	/**
@@ -287,9 +272,7 @@ public class BoostCLI
 	 * */
 	public String sc(String print) {
 		p(print, 0);
-		sc = new Scanner(System.in);
-		String input = sc.next();
-		return "" + input.charAt(0);
+		return new Scanner(System.in).next().charAt(0) + "";
 	}
 
 	/**
@@ -300,9 +283,7 @@ public class BoostCLI
 	 * */
 	public int si(String print) {
 		p(print, 0);
-		sc = new Scanner(System.in);
-		int input = sc.nextInt();
-		return input;
+		return new Scanner(System.in).nextInt();
 	}
 
 	/**
@@ -313,9 +294,7 @@ public class BoostCLI
 	 * */
 	public float sf(String print) {
 		p(print, 0);
-		sc = new Scanner(System.in);
-		float input = sc.nextFloat();
-		return input;
+		return new Scanner(System.in).nextFloat();
 	}
 
 	/**
@@ -326,172 +305,18 @@ public class BoostCLI
 	 * */
 	public double sd(String print) {
 		p(print, 0);
-		sc = new Scanner(System.in);
-		double input = sc.nextDouble();
-		return input;
+		return new Scanner(System.in).nextDouble();
 	}
 
 	@Override
 	public String toString() {
-		String info = "";
-		info += "BoostCLI\n";
-		info += "Version 0.6.3\n";
-		info += "by Patrick Latorre";
-		return info;
+		return "BoostCLI\n"
+				+ "Version 2.0.0\n"
+				+ "by Patrick Latorre";
 	}
 
 	public BoostCLI version() {
 		p(toString(), "pipe", 20);
 		return this;
-	}
-
-	/* PRIVATE METHODS */
-	private String replaceInnerSpaces(String print, int slots) {
-		String modifiedStr = "";
-		int padding = (slots-print.length()) / 2;
-
-		for(int i = 0; i < padding; i++)
-			modifiedStr += " ";
-		modifiedStr += print;
-		for(int i = 0; i < padding; i++)
-			modifiedStr += " ";
-
-		if((slots - print.length()) % 2 != 0)
-			modifiedStr += " ";
-
-		return modifiedStr;
-	}
-
-	private void styleBox(String s) {
-		int width = s.length();
-		p("+-", 0).pp("-", width).p("-+");
-		stylePillar(s, width+2);
-		p("+-", 0).pp("-", width).p("-+");
-	}
-
-	private void styleBox(String s, int styleLength) {
-		String paddedString = replaceInnerSpaces(s, styleLength);
-		int fullWidth = paddedString.length();
-		p("+", 0).pp("-", fullWidth).p("+");
-		stylePillar(paddedString, styleLength);
-		p("+", 0).pp("-", fullWidth).p("+");
-	}
-
-	private void styleBoxAppend(String s) {
-		int width = s.length();
-		stylePillar(s, width+2);
-		p("+-", 0).pp("-", width).p("-+");
-	}
-
-	private void styleBoxAppend(String s, int styleLength) {
-		String paddedString = replaceInnerSpaces(s, styleLength);
-		int fullWidth = paddedString.length();
-		stylePillar(paddedString, styleLength);
-		p("+", 0).pp("-", fullWidth).p("+");
-	}
-
-	private void stylePipe(String print) {
-		pp("=", print.length()).p();
-		p(print);
-		pp("=", print.length()).p();
-	}
-
-	private void stylePipe(String print, int styleLength) {
-		pp("=", styleLength).p();
-		p(print);
-		pp("=", styleLength).p();
-	}
-
-	private void stylePipe(String print, String charTheme) {
-		pp(charTheme, print.length()).p();
-		p(print);
-		pp(charTheme, print.length()).p();
-	}
-
-	private void stylePipe(String print, String charTheme, int styleLength) {
-		pp(charTheme, styleLength).p();
-		p(print);
-		pp(charTheme, styleLength).p();
-	}
-
-	private void stylePillarTab(String print) {
-		p("|\t" +print+ "\t|");
-	}
-
-	private void stylePillarTab(String print, String charTheme) {
-		p(charTheme + "\t" +print+ "\t" + charTheme);
-	}
-
-	private void stylePillarTab(String print, int styleLength) {
-		p("|", 0);
-		for(int i = 0; i < styleLength; i++) p("\t", 0);
-		p(print, 0);
-		for(int i = 0; i < styleLength; i++) p("\t", 0);
-		p("|", 1);
-	}
-
-	private void stylePillarTab(String print, String charTheme, int styleLength) {
-		p(charTheme, 0);
-		for(int i = 0; i < styleLength; i++) p("\t", 0);
-		p(print, 0);
-		for(int i = 0; i < styleLength; i++) p("\t", 0);
-		p(charTheme, 1);
-	}
-
-	private void stylePillarSpace(String print) {
-		p("| " +print+ " |");
-	}
-
-	private void stylePillarSpace(String print, String charTheme) {
-		p(charTheme + " " +print+ " " + charTheme);
-	}
-
-	private void stylePillarSpace(String print, int styleLength) {
-		p("|", 0);
-		for(int i = 0; i < styleLength; i++) p(" ", 0);
-		p(print, 0);
-		for(int i = 0; i < styleLength; i++) p(" ", 0);
-		p("|", 1);
-	}
-
-	private void stylePillarSpace(String print, String charTheme, int styleLength) {
-		p(charTheme, 0);
-		for(int i = 0; i < styleLength; i++) p(" ", 0);
-		p(print, 0);
-		for(int i = 0; i < styleLength; i++) p(" ", 0);
-		p(charTheme, 1);
-	}
-
-	private void stylePillar(String print) {
-		p("|" +print+ "|");
-	}
-
-	private void stylePillar(String print, String charTheme) {
-		p(charTheme +print+ charTheme);
-	}
-
-	private void stylePillar(String print, int styleLength) {
-		p("|" +replaceInnerSpaces(print, styleLength)+ "|");
-	}
-
-	private void stylePillar(String print, String charTheme, int styleLength) {
-		p(charTheme +replaceInnerSpaces(print, styleLength)+ charTheme);
-	}
-
-	private void styleQuickWrap(String print, String wrapper) {
-		String[] splitWrap = wrapper.split("[|]");
-		p(splitWrap[0] +print+ splitWrap[1], 0);
-	}
-
-	private void styleQuickWrap(String print, String wrapper, int styleLength) {
-		String[] splitWrap = wrapper.split("|");
-
-		p(splitWrap[0], 0);
-		for(int i = 0; i < styleLength; i++)
-			p(" ", 0);
-		p(print, 0);
-		for(int i = 0; i < styleLength; i++)
-			p(" ", 0);
-		p(splitWrap[1], 0);
 	}
 }

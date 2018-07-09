@@ -1,8 +1,8 @@
-package boostcli.decorator.appendor;
+package BoostCLI.stylist.placer;
 
 import java.util.List;
 
-public class Appender
+public class Placer
 {
 	/**
 	 * Prints ln line break after the string param.
@@ -14,7 +14,7 @@ public class Appender
 	}
 
 	public static String ln(String... args) {
-		return ln(a(args));
+		return ln(e(args));
 	}
 
 	/**
@@ -22,7 +22,7 @@ public class Appender
 	 *  @param args the strings to be combined
 	 *  @return the combined string
 	 * */
-	public static String a(String... args) {
+	public static String e(String... args) {
 		String out = "";
 		for (String arg : args)
 			out += arg;
@@ -36,11 +36,11 @@ public class Appender
 	 *  @param s the string to be appended on
 	 * @param lines number of line breaks to be printed
 	 * */
-	public static String a(String s, int lines) {
+	public static String e(String s, int lines) {
 		if (lines < 0) {
-			a(s, aa("\n", lines));
+			e(s, ee("\n", lines));
 		} else {
-			a(aa("\n", lines), s);
+			e(ee("\n", lines), s);
 		}
 		return s;
 	}
@@ -50,11 +50,11 @@ public class Appender
 	 *  @param s        the string to be appended
 	 * 	@param amount    amount of times the string is to be printed
 	 * */
-	public static String aa(String s, int amount) {
+	public static String ee(String s, int amount) {
 		String end = "";
 		if( amount < 0 ) end = "\n";
-		for(; amount > 0; amount--) a(s, s);
-		a(s, end);
+		for(; amount > 0; amount--) e(s, s);
+		e(s, end);
 		return s;
 	}
 
@@ -65,7 +65,7 @@ public class Appender
 	 * */
 	public static String pl(String[] list) {
 		String out = "";
-		for(String item : list) a(out, item, "\n");
+		for(String item : list) e(out, item, "\n");
 		return out;
 	}
 
@@ -76,7 +76,7 @@ public class Appender
 	 * */
 	public static String pl(int[] list) {
 		String out = "";
-		for(int item : list) a(out, String.valueOf(item), "\n");
+		for(int item : list) e(out, String.valueOf(item), "\n");
 		return out;
 	}
 
@@ -87,7 +87,7 @@ public class Appender
 	 * */
 	public static String pl(float[] list) {
 		String out = "";
-		for(float item : list) a(out, String.valueOf(item), "\n");
+		for(float item : list) e(out, String.valueOf(item), "\n");
 		return out;
 	}
 
@@ -98,7 +98,7 @@ public class Appender
 	 * */
 	public static String pl(double[] list) {
 		String out = "";
-		for(double item : list) a(out, String.valueOf(item), "\n");
+		for(double item : list) e(out, String.valueOf(item), "\n");
 		return out;
 	}
 
@@ -109,7 +109,7 @@ public class Appender
 	 * */
 	public static String pl(List<String> list) {
 		String out = "";
-		for(String item : list) a(out, item, "\n");
+		for(String item : list) e(out, item, "\n");
 		return out;
 	}
 }
