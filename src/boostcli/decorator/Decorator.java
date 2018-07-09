@@ -108,57 +108,44 @@ public class Decorator
 		return Appender.a("| ", print, " |");
 	}
 
-	public static void stylePillarSpace(String print, String charTheme) {
-		
-		p(charTheme + " " +print+ " " + charTheme);
+	public static String stylePillarSpace(String print, String charTheme) {
+		return Appender.a(charTheme, " ", print, " ", charTheme);
 	}
 
-	public static void stylePillarSpace(String print, int styleLength) {
-		p("|", 0);
-		for(int i = 0; i < styleLength; i++) p(" ", 0);
-		p(print, 0);
-		for(int i = 0; i < styleLength; i++) p(" ", 0);
-		p("|", 1);
+	public static String stylePillarSpace(String print, int styleLength) {
+		String padding = Appender.aa(" ", styleLength);
+		return Appender.a("|", padding, print, padding, "|");
 	}
 
-	public static void stylePillarSpace(String print, String charTheme, int styleLength) {
-		p(charTheme, 0);
-		for(int i = 0; i < styleLength; i++) p(" ", 0);
-		p(print, 0);
-		for(int i = 0; i < styleLength; i++) p(" ", 0);
-		p(charTheme, 1);
+	public static String stylePillarSpace(String print, String charTheme, int styleLength) {
+		String padding = Appender.aa(" ", styleLength);
+		return Appender.a(charTheme, padding, print, padding, charTheme);
 	}
 
-	public static void stylePillar(String print) {
-		p("|" +print+ "|");
+	public static String stylePillar(String print) {
+		return Appender.a("|", print, "|");
 	}
 
-	public static void stylePillar(String print, String charTheme) {
-		p(charTheme +print+ charTheme);
+	public static String stylePillar(String print, String charTheme) {
+		return Appender.a(charTheme, print, charTheme);
 	}
 
 	public static String stylePillar(String print, int styleLength) {
 		return Appender.a("|", centerIn(print, styleLength), "|");
 	}
 
-	public static void stylePillar(String print, String charTheme, int styleLength) {
-		p(charTheme + centerIn(print, styleLength)+ charTheme);
+	public static String stylePillar(String print, String charTheme, int styleLength) {
+		return Appender.a(charTheme, centerIn(print, styleLength), charTheme);
 	}
 
-	public static void styleQuickWrap(String print, String wrapper) {
+	public static String styleQuickWrap(String print, String wrapper) {
 		String[] splitWrap = wrapper.split("[|]");
-		p(splitWrap[0] +print+ splitWrap[1], 0);
+		return Appender.a(splitWrap[0], print, splitWrap[1]);
 	}
 
-	public static void styleQuickWrap(String print, String wrapper, int styleLength) {
+	public static String styleQuickWrap(String print, String wrapper, int styleLength) {
 		String[] splitWrap = wrapper.split("|");
-
-		p(splitWrap[0], 0);
-		for(int i = 0; i < styleLength; i++)
-			p(" ", 0);
-		p(print, 0);
-		for(int i = 0; i < styleLength; i++)
-			p(" ", 0);
-		p(splitWrap[1], 0);
+		String padding = Appender.aa(" ", styleLength);
+		return Appender.a(splitWrap[0], padding, print, padding, splitWrap[1]);
 	}
 }
