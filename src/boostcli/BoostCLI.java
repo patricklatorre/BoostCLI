@@ -1,3 +1,5 @@
+package boostcli;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,6 +11,7 @@ public class BoostCLI
 	private Scanner sc;
 	/**
 	 * Prints a single line break.
+	 * @return itself for method chaining
 	 * */
 	public BoostCLI p() {
 		System.out.println();
@@ -18,6 +21,7 @@ public class BoostCLI
 	/**
 	 * Prints a string on the console and goes to next line.
 	 *  @param print the string to be printed
+	 *  @return itself for method chaining
 	 * */
 	public BoostCLI p(String print) {
 		System.out.println(print);
@@ -29,7 +33,10 @@ public class BoostCLI
 	 * A positive ln arg will print the line breaks after the string.
 	 * A negative ln arg will print the line breaks before the string.
 	 *  @param print the string to be printed
-	 * @param lines number of line breaks to be printed */
+	 * @param lines number of line breaks to be printed
+	 *
+	 * @return itself for method chaining
+	 * */
 	public BoostCLI p(String print, int lines) {
 		if (lines < 0) {
 			for (; lines < 0; lines++) p("");
@@ -45,7 +52,10 @@ public class BoostCLI
 	 * Prints a responsive decoration around text. Uses the style's
 	 * default character theme.
 	 *  @param print    the string to be printed
-	 * @param style    the decoration style */
+	 * @param style    the decoration style
+	 *
+	 * @return itself for method chaining
+	 * */
 	public BoostCLI p(String print, String style) {
 		if (style.equals("box")) {
 			styleBox(print);
@@ -76,7 +86,10 @@ public class BoostCLI
 	 * character theme to replace main character used in theme.
 	 *  @param print        the string to be printed
 	 * @param style        the decoration style
-	 * @param charTheme the character to be replaced  */
+	 * @param charTheme the character to be replaced
+	 *
+	 * @return itself for method chaining
+	 * */
 	public BoostCLI p(String print, String style, String charTheme) {
 		if(style.equals("pipe")) {
 			stylePipe(print, charTheme);
@@ -98,7 +111,10 @@ public class BoostCLI
 	 * character theme to replace main character used in theme.
 	 *  @param print            the string to be printed
 	 * @param style            the decoration style
-	 * @param styleLength    gives the style a fixed metric instead of being responsive  */
+	 * @param styleLength    gives the style a fixed metric instead of being responsive
+	 *
+	 * @return itself for method chaining
+	 * */
 	public BoostCLI p(String print, String style, int styleLength) {
 		if (style.equals("box")) {
 			styleBox(print, styleLength);
@@ -130,7 +146,10 @@ public class BoostCLI
 	 *  @param print            the string to be printed
 	 * @param style            the decoration style
 	 * @param charTheme the character to be replaced
-	 * @param styleLength    gives the style a fixed metric instead of being responsive   */
+	 * @param styleLength    gives the style a fixed metric instead of being responsive
+	 *
+	 * @return itself for method chaining
+	 * */
 	public BoostCLI p(String print, String style, String charTheme, int styleLength) {
 		if(style.equals("pipe")) {
 			stylePipe(print, charTheme, styleLength);
@@ -151,7 +170,10 @@ public class BoostCLI
 	/**
 	 * Prints a string an indicated number of times.
 	 *  @param print        the string to be printed
-	 * @param amount    amount of times the string is to be printed */
+	 * @param amount    amount of times the string is to be printed
+	 *
+	 * @return itself for method chaining
+	 * */
 	public BoostCLI pp(String print, int amount) {
 		String end = "";
 		if( amount < 0 ) end = "\n";
@@ -164,6 +186,8 @@ public class BoostCLI
 	/**
 	 * Iterates through a list and prints the String associated with the index.
 	 *  @param list    the string to be printed
+	 *
+	 *  @return itself for method chaining
 	 * */
 	public BoostCLI pl(String[] list) {
 		for(String item : list) p(item);
@@ -173,6 +197,8 @@ public class BoostCLI
 	/**
 	 * Iterates through a list and prints the String associated with the index.
 	 *  @param list    the string to be printed
+	 *
+	 *  @return itself for method chaining
 	 * */
 	public BoostCLI pl(int[] list) {
 		for(int item : list) p(String.valueOf(item));
@@ -182,6 +208,8 @@ public class BoostCLI
 	/**
 	 * Iterates through a list and prints the String associated with the index.
 	 *  @param list    the string to be printed
+	 *
+	 *  @return itself for method chaining
 	 * */
 	public BoostCLI pl(float[] list) {
 		for(float item : list) p(String.valueOf(item));
@@ -191,6 +219,8 @@ public class BoostCLI
 	/**
 	 * Iterates through a list and prints the String associated with the index.
 	 *  @param list    the string to be printed
+	 *
+	 *  @return itself for method chaining
 	 * */
 	public BoostCLI pl(double[] list) {
 		for(double item : list) p(String.valueOf(item));
@@ -200,7 +230,10 @@ public class BoostCLI
 	/**
 	 * Iterates through a list and prints the String associated with the index.
 	 *  @param list    the string to be printed
-	 * @param style    the style of which the list is to be printed */
+	 * @param style    the style of which the list is to be printed
+	 *
+	 * @return itself for method chaining
+	 * */
 	public BoostCLI pl(Object[] list, String style) {
 		for(Object item : list) p(String.valueOf(item));
 		return this;
@@ -209,6 +242,8 @@ public class BoostCLI
 	/**
 	 * Iterates through a list and prints the String associated with the index.
 	 *  @param list    the string to be printed
+	 *
+	 *  @return itself for method chaining
 	 * */
 	public BoostCLI pl(List<String> list) {
 		for(String item : list) p(item);
@@ -234,7 +269,7 @@ public class BoostCLI
 	 * breaks upon a [space].
 	 *
 	 * @param print the message to be printed
- *     @return user input
+	 *     @return user input
 	 * */
 	public String sw(String print) {
 		p(print, 0);
