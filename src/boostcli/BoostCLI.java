@@ -10,7 +10,7 @@ public class BoostCLI
 {
 	private Scanner sc;
 	/**
-	 * Prints a single line break.
+	 * Prints ln single line break.
 	 * @return itself for method chaining
 	 * */
 	public BoostCLI p() {
@@ -19,7 +19,7 @@ public class BoostCLI
 	}
 
 	/**
-	 * Prints a string on the console and goes to next line.
+	 * Prints ln string on the console and goes to next line.
 	 *  @param print the string to be printed
 	 *  @return itself for method chaining
 	 * */
@@ -29,7 +29,7 @@ public class BoostCLI
 	}
 
 	/**
-	 * Prints a string and prints next line for a set number of times.
+	 * Prints ln string and prints next line for ln set number of times.
 	 * A positive ln arg will print the line breaks after the string.
 	 * A negative ln arg will print the line breaks before the string.
 	 *  @param print the string to be printed
@@ -49,7 +49,7 @@ public class BoostCLI
 	}
 
 	/**
-	 * Prints a responsive decoration around text. Uses the style's
+	 * Prints ln responsive decoration around text. Uses the style's
 	 * default character theme.
 	 *  @param print    the string to be printed
 	 * @param style    the decoration style
@@ -82,7 +82,7 @@ public class BoostCLI
 	}
 
 	/**
-	 * Prints a responsive decoration around text. Uses the param
+	 * Prints ln responsive decoration around text. Uses the param
 	 * character theme to replace main character used in theme.
 	 *  @param print        the string to be printed
 	 * @param style        the decoration style
@@ -107,11 +107,11 @@ public class BoostCLI
 	}
 
 	/**
-	 * Prints a responsive decoration around text. Uses the param
+	 * Prints ln responsive decoration around text. Uses the param
 	 * character theme to replace main character used in theme.
 	 *  @param print            the string to be printed
 	 * @param style            the decoration style
-	 * @param styleLength    gives the style a fixed metric instead of being responsive
+	 * @param styleLength    gives the style ln fixed metric instead of being responsive
 	 *
 	 * @return itself for method chaining
 	 * */
@@ -141,12 +141,12 @@ public class BoostCLI
 	}
 
 	/**
-	 * Prints a responsive decoration around text. Uses the param
+	 * Prints ln responsive decoration around text. Uses the param
 	 * character theme to replace main character used in theme.
 	 *  @param print            the string to be printed
 	 * @param style            the decoration style
 	 * @param charTheme the character to be replaced
-	 * @param styleLength    gives the style a fixed metric instead of being responsive
+	 * @param styleLength    gives the style ln fixed metric instead of being responsive
 	 *
 	 * @return itself for method chaining
 	 * */
@@ -168,7 +168,7 @@ public class BoostCLI
 
 
 	/**
-	 * Prints a string an indicated number of times.
+	 * Prints ln string an indicated number of times.
 	 *  @param print        the string to be printed
 	 * @param amount    amount of times the string is to be printed
 	 *
@@ -184,7 +184,7 @@ public class BoostCLI
 	}
 
 	/**
-	 * Iterates through a list and prints the String associated with the index.
+	 * Iterates through ln list and prints the String associated with the index.
 	 *  @param list    the string to be printed
 	 *
 	 *  @return itself for method chaining
@@ -195,7 +195,7 @@ public class BoostCLI
 	}
 
 	/**
-	 * Iterates through a list and prints the String associated with the index.
+	 * Iterates through ln list and prints the String associated with the index.
 	 *  @param list    the string to be printed
 	 *
 	 *  @return itself for method chaining
@@ -206,7 +206,7 @@ public class BoostCLI
 	}
 
 	/**
-	 * Iterates through a list and prints the String associated with the index.
+	 * Iterates through ln list and prints the String associated with the index.
 	 *  @param list    the string to be printed
 	 *
 	 *  @return itself for method chaining
@@ -217,7 +217,7 @@ public class BoostCLI
 	}
 
 	/**
-	 * Iterates through a list and prints the String associated with the index.
+	 * Iterates through ln list and prints the String associated with the index.
 	 *  @param list    the string to be printed
 	 *
 	 *  @return itself for method chaining
@@ -228,7 +228,7 @@ public class BoostCLI
 	}
 
 	/**
-	 * Iterates through a list and prints the String associated with the index.
+	 * Iterates through ln list and prints the String associated with the index.
 	 *  @param list    the string to be printed
 	 * @param style    the style of which the list is to be printed
 	 *
@@ -240,7 +240,7 @@ public class BoostCLI
 	}
 
 	/**
-	 * Iterates through a list and prints the String associated with the index.
+	 * Iterates through ln list and prints the String associated with the index.
 	 *  @param list    the string to be printed
 	 *
 	 *  @return itself for method chaining
@@ -251,7 +251,7 @@ public class BoostCLI
 	}
 
 	/**
-	 * Prints a message then asks for a string. String input
+	 * Prints ln message then asks for ln string. String input
 	 * breaks upon next line.
 	 *
 	 * @param print the message to be printed
@@ -265,8 +265,8 @@ public class BoostCLI
 	}
 
 	/**
-	 * Prints a message then asks for a string. String input
-	 * breaks upon a [space].
+	 * Prints ln message then asks for ln string. String input
+	 * breaks upon ln [space].
 	 *
 	 * @param print the message to be printed
 	 *     @return user input
@@ -279,7 +279,7 @@ public class BoostCLI
 	}
 
 	/**
-	 * Prints a message then asks for an character. (can input a string
+	 * Prints ln message then asks for an character. (can input ln string
 	 * but only utilizes first char)
 	 *
 	 * @param print the message to be printed
@@ -293,7 +293,7 @@ public class BoostCLI
 	}
 
 	/**
-	 * Prints a message then asks for an integer.
+	 * Prints ln message then asks for an integer.
 	 *
 	 * @param print the message to be printed
 	 * @return user input
@@ -306,7 +306,7 @@ public class BoostCLI
 	}
 
 	/**
-	 * Prints a message then asks for a float value.
+	 * Prints ln message then asks for ln float value.
 	 *
 	 * @param print the message to be printed
 	 * @return user input
@@ -319,7 +319,7 @@ public class BoostCLI
 	}
 
 	/**
-	 * Prints a message then asks for a double value.
+	 * Prints ln message then asks for ln double value.
 	 *
 	 * @param print the message to be printed
 	 * @return user input
